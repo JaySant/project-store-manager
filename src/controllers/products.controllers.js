@@ -6,7 +6,7 @@ const productAll = async (_req, res) => {
 };
 
 const productById = async (req, res) => {
-  const { id } = req.params;
+  const id = Number(req.params.id);
   const result = await service.productById(id);
   return res.status(result.type).json(result.message);
 };
