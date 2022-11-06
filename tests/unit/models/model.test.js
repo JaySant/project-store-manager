@@ -24,6 +24,20 @@ describe('Testa a listagem de produtos', function () {
     const result = await productsModel.createProduct(productNew);
     expect(result).to.equal(42);
   });
+
+  it('Realiza um UPDATE com model', async function () {
+    sinon.stub(connection, 'execute').resolves([{ affectedRows: 1 }])
+    const response = await productsModel.updateProduct(productsMock)
+    expect(response).to.equal(1)
+  })
+
+
+  it('Testa se exclui um produto', async function () {
+    sinon.stub(connection, 'execute').resolves([{ affectedRows: 1 }])
+    const response = await productsModel.deleteProduct(productsMock)
+    expect(response).to.equal(1)
+  })
+
  
   afterEach(sinon.restore);
 })

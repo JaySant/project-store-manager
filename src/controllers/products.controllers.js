@@ -21,7 +21,6 @@ const updateProduct = async (req, res) => {
   const id = Number(req.params.id);
   const { name } = req.body;
   const result = await service.updateProduct(name, id);
-  console.log(result);
   return res.status(result.type).json(result.message);
 };
 

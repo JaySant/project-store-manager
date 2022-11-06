@@ -12,5 +12,13 @@ describe('Verifica o service de vendas', function () {
     expect(product.message).to.deep.equal(salesMock)
   })
 
+  it('Se retorna o id de vendas', async function () {
+
+  })
+
+  it('Se deleta uma venda através do id', async function () {
+    
+  })
+
   afterEach(sinon.restore);
 })

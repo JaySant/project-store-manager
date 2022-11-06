@@ -1,7 +1,7 @@
 const productsMock = [
   {
-    "id": 1,
-    "name": "Martelo de Thor"
+    id: 1,
+    name: "Martelo de Thor"
   },
   {
     "id": 2,

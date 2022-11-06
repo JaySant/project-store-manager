@@ -1,3 +1,5 @@
+const camelize = require('camelize')
+
 const salesMock = [
   {
     "sale_id": 1,
@@ -19,4 +21,4 @@ const salesMock = [
   }
 ]
 
-module.exports = salesMock;
+module.exports = camelize(salesMock)
