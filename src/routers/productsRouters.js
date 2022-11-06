@@ -5,7 +5,9 @@ const { validateName } = require('../middlewares/validate');
 const router = express.Router();
 
 router.post('/', validateName, controller.createProduct);
+router.put('/:id', validateName, controller.updateProduct);
 router.get('/', controller.productAll);
 router.get('/:id', controller.productById);
+router.delete('/:id', controller.deleteProduct);
 
 module.exports = router;

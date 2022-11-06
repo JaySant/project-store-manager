@@ -4,6 +4,7 @@ const status = {
   SUCCESS: 200,
   PRODUCT_NOT_FOUND: 404,
   CREATE_PRODUCT: 201,
+  DELETE_PRODUCT: 204,
 };
 
 const productAll = async () => {
@@ -22,8 +23,22 @@ const createProduct = async (product) => {
    return { type: status.CREATE_PRODUCT, message: result };
 };
 
+const updateProduct = async (name, id) => {
+  const result = await products.updateProduct(name, id);
+  if (result > 0) return { type: status.SUCCESS, message: { id, name } };
+  return { type: status.PRODUCT_NOT_FOUND, message: { message: 'Product not found' } };
+};
+
+const deleteProduct = async (id) => {
+  const result = await products.deleteProduct(id);
+  if (result > 0) return { type: status.DELETE_PRODUCT };
+  return { type: status.PRODUCT_NOT_FOUND, message: { message: 'Product not found' } };
+};
+
 module.exports = {
   productAll,
   productById,
   createProduct,
+  updateProduct,
+  deleteProduct,
 };
