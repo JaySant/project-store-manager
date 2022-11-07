@@ -35,10 +35,17 @@ const deleteProduct = async (id) => {
   return { type: status.PRODUCT_NOT_FOUND, message: { message: 'Product not found' } };
 };
 
+const searchName = async (query) => {
+  const result = await products.searchName(query);
+  if (result.length > 0) return { type: status.SUCCESS, message: result };
+  return { type: status.PRODUCT_NOT_FOUND, message: { message: 'Product not found' } };
+};
+
 module.exports = {
   productAll,
   productById,
   createProduct,
   updateProduct,
   deleteProduct,
+  searchName,
 };
